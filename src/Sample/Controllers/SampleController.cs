@@ -57,7 +57,7 @@ namespace Sample.Controllers
                     var entry = _repository.Add(value);
                     return Request.CreateResponse(HttpStatusCode.Created, entry);
                 }
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error while creating timezone.");
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Error.");
             });
         }
 
