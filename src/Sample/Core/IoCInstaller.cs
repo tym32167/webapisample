@@ -2,7 +2,10 @@
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using Sample.Core.Contracts;
 using Sample.Core.Logging;
+using Sample.Core.Repository;
+using Sample.Models;
 
 namespace Sample.Core
 {
@@ -19,6 +22,10 @@ namespace Sample.Core
                     .FromThisAssembly()
                     .BasedOn<ApiController>()
                     .LifestyleScoped()
+                );
+
+            container.Register(
+                Component.For<IRepository<SampleModel, int>>().ImplementedBy< StaticListRepository<SampleModel, int>>()
                 );
         }
     }

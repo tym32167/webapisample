@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using NLog;
+using Sample.Core.Contracts;
 
 namespace Sample.Core.Logging
 {

@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using Sample.Core;
+using Sample.Core.Contracts;
 using Sample.Core.Logging;
 
 namespace Sample.Controllers
 {
-    public class DefaultController : ApiController
+    public class SampleController : BaseApiController
     {
-        private readonly ILog _log;
-
-        public DefaultController(ILog log)
+        public SampleController(ILog log) : base(log)
         {
-            _log = log;
         }
 
         // GET: api/Default
@@ -22,7 +21,7 @@ namespace Sample.Controllers
         // GET: api/Default/5
         public string Get(int id)
         {
-            _log.DebugFormat("{0} - {1}", "sample message from NLOG by Castle", id);
+            Log.DebugFormat("{0} - {1}", "sample message from NLOG by Castle", id);
             return "value";
         }
 

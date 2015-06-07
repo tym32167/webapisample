@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
-namespace Sample.Core.Logging
+namespace Sample.Core.Contracts
 {
     public interface ILog
     {

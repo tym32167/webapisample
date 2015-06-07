@@ -90,11 +90,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\SampleController.cs" />
+    <Compile Include="Core\BaseApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Core\IoCInstaller.cs" />
+    <Compile Include="Models\SampleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\WindsorDependencyResolver.cs" />
     <Compile Include="Core\WindsorDependencyScope.cs" />
@@ -109,11 +111,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Code\" />
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Sample.Core\Sample.Core.csproj">
       <Project>{31121919-EFBE-4A5D-B64A-D458D8C87B62}</Project>
