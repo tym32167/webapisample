@@ -6,6 +6,13 @@ namespace Sample.Controllers
 {
     public class DefaultController : ApiController
     {
+        private readonly ILog _log;
+
+        public DefaultController(ILog log)
+        {
+            _log = log;
+        }
+
         // GET: api/Default
         public IEnumerable<string> Get()
         {
@@ -15,7 +22,7 @@ namespace Sample.Controllers
         // GET: api/Default/5
         public string Get(int id)
         {
-            new Log().DebugFormat("{0} - {1}", "sample message", id);
+            _log.DebugFormat("{0} - {1}", "sample message from NLOG by Castle", id);
             return "value";
         }
 
