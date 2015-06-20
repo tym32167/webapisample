@@ -1,5 +1,6 @@
 ﻿using System.Web.Http.ExceptionHandling;
 using Sample.Core.Contracts;
+using Sample.Core.Extensions;
 
 namespace Sample.Core.Logging
 {
@@ -15,7 +16,7 @@ namespace Sample.Core.Logging
         public override void Log(ExceptionLoggerContext context)
         {
             base.Log(context);
-            _log.Error(context.Exception);
+            _log.Error(context.ConvertToString());
         }
     }
 }
