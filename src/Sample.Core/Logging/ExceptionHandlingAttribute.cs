@@ -1,8 +1,6 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System;
 using System.Web.Http.Filters;
-using Sample.Core.Contracts;
+using System.Web.Management;
 
 namespace Sample.Core.Logging
 {
@@ -11,12 +9,10 @@ namespace Sample.Core.Logging
     {
         public override void OnException(HttpActionExecutedContext context)
         {
-            var log = context.ActionContext.ControllerContext.Configuration.DependencyResolver.GetService(typeof(ILog)) as ILog;
-
-            if (log != null) log.Error(context.Exception);
-            #if !DEBUG
+            new CustomWebRequestErrorEvent("An unhandled exception has occured.", this, 103005, context.Exception).Raise();
+#if !DEBUG
             throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError));
-            #endif
+#endif
         }
     }
 }

@@ -6,12 +6,15 @@ namespace Sample.Core.Logging
     {
         public NLogWebEventProvider()
         {
-            
+
         }
 
         public override void ProcessEvent(WebBaseEvent raisedEvent)
         {
-            Log.Instance.Debug(raisedEvent.ToString(true, true));
+            if (raisedEvent is WebRequestErrorEvent || raisedEvent.EventCode == 103005)
+                Log.Instance.Error(raisedEvent.ToString(true, true));
+            else
+                Log.Instance.Info(raisedEvent.ToString(true, true));
         }
 
         public override void Shutdown()
