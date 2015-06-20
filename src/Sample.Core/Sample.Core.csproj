@@ -60,6 +60,7 @@
     <Compile Include="Contracts\ILog.cs" />
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Logging\CustomWebRequestErrorEvent.cs" />
     <Compile Include="Logging\ExceptionHandlingAttribute.cs" />
     <Compile Include="Logging\Log.cs" />
     <Compile Include="Logging\NLogExceptionLogger.cs" />
