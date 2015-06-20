@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Sample.Core;
@@ -22,6 +23,9 @@ namespace Sample.Controllers
         // GET: api/Default
         public HttpResponseMessage Get()
         {
+
+            throw new Exception("myexp");
+
             return Act(() => {
                 return Request.CreateResponse(HttpStatusCode.OK, _repository.All());
             });
