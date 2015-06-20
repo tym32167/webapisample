@@ -14,6 +14,9 @@ namespace Sample.Core.Logging
         private static bool _configured;
         private static readonly object Lock = new object();
 
+        // Можно использовать только в NLogWebEventProvider!
+        internal static ILog Instance { get { return new Log(); } }
+
         private static void Configure()
         {
             if (!_configured)

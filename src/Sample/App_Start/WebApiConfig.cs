@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 using Newtonsoft.Json.Serialization;
+using Sample.Core.Logging;
 
 namespace Sample
 {
@@ -10,6 +12,10 @@ namespace Sample
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.Services.Add(typeof (IExceptionLogger), new NLogExceptionLogger(new Log()));
+
+            // filters
+            config.Filters.Add(new ExceptionHandlingAttribute());
 
             // Web API routes
             config.MapHttpAttributeRoutes();
