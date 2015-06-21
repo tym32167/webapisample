@@ -1,6 +1,6 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Runtime.CompilerServices;
-using JetBrains.Annotations;
 
 namespace Sample.Core.Contracts
 {
@@ -18,7 +18,7 @@ namespace Sample.Core.Contracts
 
         [StringFormatMethod("format")]
         void DebugFormat(string format, object arg0);
-        
+
         [StringFormatMethod("format")]
         void DebugFormat(string format, object arg0, object arg1);
 
@@ -42,15 +42,18 @@ namespace Sample.Core.Contracts
 
         [StringFormatMethod("format")]
         void InfoFormat(string format, params object[] args);
+
         [StringFormatMethod("format")]
         void InfoFormat(string format, object arg0);
+
         [StringFormatMethod("format")]
         void InfoFormat(string format, object arg0, object arg1);
+
         [StringFormatMethod("format")]
         void InfoFormat(string format, object arg0, object arg1, object arg2);
+
         [StringFormatMethod("format")]
         void InfoFormat(IFormatProvider provider, string format, params object[] args);
-
 
         void Warn(object message,
            [CallerMemberName] string memberName = null,
@@ -64,15 +67,18 @@ namespace Sample.Core.Contracts
 
         [StringFormatMethod("format")]
         void WarnFormat(string format, params object[] args);
+
         [StringFormatMethod("format")]
         void WarnFormat(string format, object arg0);
+
         [StringFormatMethod("format")]
         void WarnFormat(string format, object arg0, object arg1);
+
         [StringFormatMethod("format")]
         void WarnFormat(string format, object arg0, object arg1, object arg2);
+
         [StringFormatMethod("format")]
         void WarnFormat(IFormatProvider provider, string format, params object[] args);
-
 
         void Error(object message,
            [CallerMemberName] string memberName = null,
@@ -86,12 +92,16 @@ namespace Sample.Core.Contracts
 
         [StringFormatMethod("format")]
         void ErrorFormat(string format, params object[] args);
+
         [StringFormatMethod("format")]
         void ErrorFormat(string format, object arg0);
+
         [StringFormatMethod("format")]
         void ErrorFormat(string format, object arg0, object arg1);
+
         [StringFormatMethod("format")]
         void ErrorFormat(string format, object arg0, object arg1, object arg2);
+
         [StringFormatMethod("format")]
         void ErrorFormat(IFormatProvider provider, string format, params object[] args);
 
@@ -107,12 +117,16 @@ namespace Sample.Core.Contracts
 
         [StringFormatMethod("format")]
         void FatalFormat(string format, params object[] args);
+
         [StringFormatMethod("format")]
         void FatalFormat(string format, object arg0);
+
         [StringFormatMethod("format")]
         void FatalFormat(string format, object arg0, object arg1);
+
         [StringFormatMethod("format")]
         void FatalFormat(string format, object arg0, object arg1, object arg2);
+
         [StringFormatMethod("format")]
         void FatalFormat(IFormatProvider provider, string format, params object[] args);
     }

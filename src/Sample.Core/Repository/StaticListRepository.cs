@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using Sample.Core.Contracts;
+﻿using Sample.Core.Contracts;
+using System.Collections.Generic;
 
 namespace Sample.Core.Repository
 {
     public class StaticListRepository<T, TKey> : BaseRepository<T, TKey> where T : IEntity<TKey>, new()
     {
-         private static readonly IList<T> Items = new List<T>();
+        private static readonly IList<T> Items = new List<T>();
 
         public override IEnumerable<T> All()
         {

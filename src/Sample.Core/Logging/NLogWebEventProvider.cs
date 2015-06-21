@@ -6,7 +6,6 @@ namespace Sample.Core.Logging
     {
         public NLogWebEventProvider()
         {
-
         }
 
         public override void ProcessEvent(WebBaseEvent raisedEvent)
@@ -19,12 +18,10 @@ namespace Sample.Core.Logging
 
         public override void Shutdown()
         {
-
         }
 
         public override void Flush()
         {
-
         }
     }
 }

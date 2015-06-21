@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Sample.Core.Contracts;
+﻿using Sample.Core.Contracts;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sample.Models
 {

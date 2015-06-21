@@ -1,9 +1,9 @@
-﻿using System.Web;
-using System.Web.Http;
-using Castle.MicroKernel.Resolvers.SpecializedResolvers;
+﻿using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 using Sample.Core;
+using System.Web;
+using System.Web.Http;
 
 namespace Sample
 {
@@ -24,8 +24,7 @@ namespace Sample
             _container.Kernel.Resolver.AddSubResolver(new CollectionResolver(_container.Kernel, true));
             var dependencyResolver = new WindsorDependencyResolver(_container);
             configuration.DependencyResolver = dependencyResolver;
-        }    
-       
+        }
 
         protected void Application_End()
         {

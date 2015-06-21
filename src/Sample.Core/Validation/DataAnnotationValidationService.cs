@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Sample.Core.Contracts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Sample.Core.Contracts;
-using Sample.Core.Logging;
 
 namespace Sample.Core.Validation
 {
@@ -31,7 +30,7 @@ namespace Sample.Core.Validation
             catch (Exception e)
             {
                 _log.Error(e);
-                return new ModelValidationResult(false, new []{new ValidationResult(e.Message) } );
+                return new ModelValidationResult(false, new[] { new ValidationResult(e.Message) });
             }
         }
     }

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using NLog;
 using Sample.Core.Contracts;
+using System;
+using System.Runtime.CompilerServices;
 
 namespace Sample.Core.Logging
 {
-
     public class Log : ILog
     {
         private static readonly Lazy<Logger> Logger = new Lazy<Logger>(LogManager.GetCurrentClassLogger);
@@ -37,9 +36,6 @@ namespace Sample.Core.Logging
         {
             get
             {
-
-                
-
                 if (!_configured) Configure();
                 return Logger.Value;
             }
@@ -53,7 +49,6 @@ namespace Sample.Core.Logging
         {
             return string.Format("{0}, {1} : {2}\n{3}", memberName, sourceFilePath, sourceLineNumber, message);
         }
-
 
         #region Implementation of ILog
 
@@ -92,7 +87,7 @@ namespace Sample.Core.Logging
         {
             _log.Debug(format, arg0, arg1);
         }
-        
+
         [StringFormatMethod("format")]
         public void DebugFormat(string format, object arg0, object arg1, object arg2)
         {
@@ -158,7 +153,6 @@ namespace Sample.Core.Logging
             _log.Info(provider, format, args);
         }
 
-
         public void Warn(object message,
             [CallerMemberName] string memberName = null,
             [CallerFilePath] string sourceFilePath = null,
@@ -176,7 +170,6 @@ namespace Sample.Core.Logging
             var m = MemberFormat(memberName, sourceFilePath, sourceLineNumber, message);
             _log.Warn(m, exception);
         }
-
 
         [StringFormatMethod("format")]
         public void WarnFormat(string format, params object[] args)
@@ -304,6 +297,6 @@ namespace Sample.Core.Logging
             _log.Fatal(provider, format, args);
         }
 
-        #endregion
+        #endregion Implementation of ILog
     }
 }

@@ -1,9 +1,9 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json.Serialization;
+using Sample.Core.Logging;
+using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
-using Newtonsoft.Json.Serialization;
-using Sample.Core.Logging;
 
 namespace Sample
 {
@@ -12,7 +12,7 @@ namespace Sample
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.Services.Add(typeof (IExceptionLogger), new NLogExceptionLogger(new Log()));
+            config.Services.Add(typeof(IExceptionLogger), new NLogExceptionLogger(new Log()));
 
             // filters
             config.Filters.Add(new ExceptionHandlingAttribute());
@@ -25,7 +25,6 @@ namespace Sample
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
 
             // Only for camel-case fornatting when serialized object to json
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();

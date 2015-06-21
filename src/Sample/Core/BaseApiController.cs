@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Sample.Core.Contracts;
+using Sample.Core.Validation;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Sample.Core.Contracts;
-using Sample.Core.Validation;
 
 namespace Sample.Core
 {
@@ -20,7 +20,6 @@ namespace Sample.Core
         {
             return Request.CreateErrorResponse(HttpStatusCode.BadRequest, validationResult.Summary);
         }
-
 
         protected HttpResponseMessage Act(Func<HttpResponseMessage> action)
         {

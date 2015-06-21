@@ -5,7 +5,6 @@
         TKey Id { get; }
     }
 
-
     public interface IEntity
     {
     }
