@@ -1,6 +1,6 @@
-﻿using System.Web.Http.ExceptionHandling;
-using Sample.Core.Contracts;
+﻿using Sample.Core.Contracts;
 using Sample.Core.Extensions;
+using System.Web.Http.ExceptionHandling;
 
 namespace Sample.Core.Logging
 {

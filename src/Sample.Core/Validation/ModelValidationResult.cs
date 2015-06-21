@@ -12,7 +12,6 @@ namespace Sample.Core.Validation
             IsValid = isValid;
             ValidationResults = validationResults;
 
-
             _summary = new Lazy<string>(() =>
             {
                 var sb = new StringBuilder(string.Empty);
@@ -28,10 +27,11 @@ namespace Sample.Core.Validation
         }
 
         public bool IsValid { get; private set; }
+
         public IEnumerable<ValidationResult> ValidationResults { get; private set; }
 
+        private readonly Lazy<string> _summary;
 
-        private readonly Lazy<string> _summary = new Lazy<string>(()=>string.Empty);
         public string Summary
         {
             get { return _summary.Value; }

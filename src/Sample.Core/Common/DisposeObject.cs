@@ -15,9 +15,7 @@ namespace Sample.Core.Common
             Dispose(false);
         }
 
-
         private bool _disposed;
-
 
         protected virtual void Dispose(bool disposing)
         {

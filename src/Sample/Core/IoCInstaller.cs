@@ -1,5 +1,4 @@
-﻿using System.Web.Http;
-using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Sample.Core.Contracts;
@@ -7,6 +6,7 @@ using Sample.Core.Logging;
 using Sample.Core.Repository;
 using Sample.Core.Validation;
 using Sample.Models;
+using System.Web.Http;
 
 namespace Sample.Core
 {
@@ -26,9 +26,8 @@ namespace Sample.Core
                 );
 
             container.Register(
-                Component.For<IRepository<SampleModel, int>>().ImplementedBy< StaticListRepository<SampleModel, int>>()
+                Component.For<IRepository<SampleModel, int>>().ImplementedBy<StaticListRepository<SampleModel, int>>()
                 );
-
 
             container.Register(
                 Component.For<IValidationService>().ImplementedBy<DataAnnotationValidationService>()

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Castle.Windsor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http.Dependencies;
-using Castle.Windsor;
 
 namespace Sample.Core
 {
@@ -19,6 +19,7 @@ namespace Sample.Core
 
             _container = container;
         }
+
         public object GetService(Type t)
         {
             return _container.Kernel.HasComponent(t) ? _container.Resolve(t) : null;
@@ -36,7 +37,6 @@ namespace Sample.Core
 
         public void Dispose()
         {
-
         }
     }
 }

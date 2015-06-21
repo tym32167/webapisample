@@ -1,11 +1,11 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using Sample.Core;
+﻿using Sample.Core;
 using Sample.Core.Contracts;
 using Sample.Core.Validation;
 using Sample.Models;
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 
 namespace Sample.Controllers
 {
@@ -14,7 +14,8 @@ namespace Sample.Controllers
         private readonly IRepository<SampleModel, int> _repository;
         private readonly IValidationService _validationService;
 
-        public SampleController(ILog log, IRepository<SampleModel, int> repository, IValidationService validationService ) : base(log)
+        public SampleController(ILog log, IRepository<SampleModel, int> repository, IValidationService validationService)
+            : base(log)
         {
             _repository = repository;
             _validationService = validationService;
@@ -23,10 +24,8 @@ namespace Sample.Controllers
         // GET: api/Default
         public HttpResponseMessage Get()
         {
-
-            throw new Exception("myexp");
-
-            return Act(() => {
+            return Act(() =>
+            {
                 return Request.CreateResponse(HttpStatusCode.OK, _repository.All());
             });
         }
@@ -70,7 +69,6 @@ namespace Sample.Controllers
         {
             return Act(() =>
             {
-
                 value.Id = id;
                 var validationResult = _validationService.Validate(value);
                 if (!validationResult.IsValid) return MakeInvalidModelResponse(validationResult);

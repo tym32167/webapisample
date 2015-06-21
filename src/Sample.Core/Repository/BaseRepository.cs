@@ -1,16 +1,19 @@
-﻿using System;
+﻿using Sample.Core.Common;
+using Sample.Core.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sample.Core.Common;
-using Sample.Core.Contracts;
 
 namespace Sample.Core.Repository
 {
     public abstract class BaseRepository<T, TKey> : DisposeObject, IRepository<T, TKey> where T : IEntity<TKey>, new()
     {
         public abstract IEnumerable<T> All();
+
         public abstract void Delete(T item);
+
         public abstract T Update(T item);
+
         public abstract T Add(T item);
 
         public int Count()

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Web.Http.Filters;
-using System.Web.Management;
+﻿using System.Web.Http.Filters;
 
 namespace Sample.Core.Logging
 {
-
     public class ExceptionHandlingAttribute : ExceptionFilterAttribute
     {
         public override void OnException(HttpActionExecutedContext context)
