@@ -24,8 +24,6 @@ namespace Sample.Controllers
         // GET: api/Default
         public HttpResponseMessage Get()
         {
-            throw new Exception("myexp");
-
             return Act(() =>
             {
                 return Request.CreateResponse(HttpStatusCode.OK, _repository.All());
